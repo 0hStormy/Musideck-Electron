@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musideck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="manifest" href="static/manifest.json">
+</head>
+<body>
+    <div class="root">
+        <div class="titlebar"></div>
+        <img class="settings-icon" onclick="location.replace('/settings')" src="static/img/settings.svg" alt="">
+        <div class="vert">
+            <img id="cover" class="cover" src="http://127.0.0.1:5000/static/cover.png" alt="Cover art">
+            <div class="vert">
+                <h1 id="title">$title</h1>
+                <h2 id="album">$album</h2>
+                <h2 id="artist">$artist</h2>
+            </div>
+            <div class="progress-container">
+                <div id="bar" class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <div class="hori">
+                <img id="previous" onclick="playbackChange('previous')" class="media-state" src="static/img/previous.svg" alt="">
+                <img onclick="playbackChange('playback')" id="media-state" class="media-state" src="static/img/play.svg" alt="">
+                <img id="next" onclick="playbackChange('next')" class="media-state" src="static/img/next.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="static/main.js"></script>
+</body>
+</html>
