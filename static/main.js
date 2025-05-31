@@ -1,4 +1,5 @@
-const musideckServer = "http://127.0.0.1:5000/"
+let musideckServer = "http://127.0.0.1:5000/"
+let noConnection = false
 
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();
@@ -15,15 +16,20 @@ function httpPost(theUrl, requestBody=null) {
 }
 
 async function reconnect() {
+    console.log(document.getElementById('ipBox').value)
+    if (document.getElementById('ipBox').value != null) {
+        musideckServer = `http://${document.getElementById('ipBox').value}:5000`
+    }
     try {
-        const response = await fetch(window.location.href);
+        const response = await fetch(musideckServer);
 
         if (response.ok) {
+            noConnection = false
             location.reload()
         }
     } catch (error) {
         console.error("Failed to connect to server: ", error.message);
-        document.body.innerHTML = `<div class="root"><h1>Failed to reconnect!</h1><p>${error.message}</p><button>Reconnect</button></div>`;
+        document.body.innerHTML = serverErrorHTML;
     }
 }
 
@@ -68,9 +74,25 @@ async function main() {
 
         document.getElementById('bar').style.width = `${(songJSON.position / songJSON.duration) * 100}%`;
     } catch (error) {
+        const serverErrorHTML = `
+        <div class="root">
+            <div class="titlebar"></div>
+            <h1>No Server Connection</h1>
+            <p>${error.message}</p>
+            <div class="hori">
+                <p>IP (no http:// or port)</p>
+                <input id="ipBox"></input>
+            </div>
+            <p>Current IP: ${musideckServer}<p>
+            <button onclick="reconnect()">Reconnect</button>
+        </div>
+        `;
         if (error instanceof TypeError && error.message === 'Failed to fetch') {
-            console.error("Failed to connect to server: ", error.message);
-            document.body.innerHTML = `<div class="root"><h1>Musideck lost server connection!</h1><p>${error.message}</p><button onclick="reconnect()">Reconnect</button></div>`;
+            if (noConnection == false) {
+                noConnection = true
+                console.error("Failed to connect to server: ", error.message);
+                document.body.innerHTML = serverErrorHTML;
+            }
         }
     } finally {
         setTimeout(main, 1000);
