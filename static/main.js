@@ -15,11 +15,11 @@ function httpPost(theUrl, requestBody=null) {
     return xmlHttp.responseText;
 }
 
-function updateDecorationsTheme(newTheme) {
+function updateDecorationsTheme(newTheme, imageType) {
     decorationsTheme = newTheme
-    document.getElementById('close-button').src = `static/titlebar/${decorationsTheme}/close.svg`;
-    document.getElementById('min-button').src = `static/titlebar/${decorationsTheme}/min.svg`;
-    document.getElementById('max-button').src = `static/titlebar/${decorationsTheme}/max.svg`;
+    document.getElementById('close-button').src = `static/titlebar/${decorationsTheme}/close.${imageType}`;
+    document.getElementById('min-button').src = `static/titlebar/${decorationsTheme}/min.${imageType}`;
+    document.getElementById('max-button').src = `static/titlebar/${decorationsTheme}/max.${imageType}`;
     addCss(`static/titlebar/${decorationsTheme}/titlebar.css`)
 }
 
@@ -128,5 +128,5 @@ document.getElementById('min-button').addEventListener('click', () => {
     window.api.sendWindowControl('minimize');
 });
 
-updateDecorationsTheme("breeze")
+updateDecorationsTheme("win10", "png")
 main();
