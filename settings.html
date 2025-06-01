@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musideck</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/style.css">
     <link rel="manifest" href="static/manifest.json">
 </head>
 <body>
@@ -13,7 +12,15 @@
         <img class="settings-icon" onclick="location.replace('index.html')" src="static/img/back.svg" alt="">
         <div class="vert">
             <h1>Settings</h1>
-            <p>Nothing here yet lol</p>
+            <div class="hori">
+                <p>Visual Style:</p>
+                <select name="style" id="uistyle"></select>
+            </div>
+            <div class="hori">
+                <p>Titlebar Style:</p>
+                <select name="titlebar" id="titlebarStyle"></select>
+            </div>
+            <button onclick="applySettings()">Apply Settings</button>
         </div>
         <div class="titlebar">
         <div class="decorations">
@@ -23,5 +30,6 @@
         </div>
     </div>
     <script src="static/main.js"></script>
+    <script src="static/settings.js"></script>
 </body>
 </html>

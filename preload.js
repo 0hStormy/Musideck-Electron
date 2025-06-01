@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('api', {
-  sendWindowControl: (action) => ipcRenderer.send('window-control', action)
+  sendWindowControl: (action) => ipcRenderer.send('window-control', action),
 });
 
 window.addEventListener('DOMContentLoaded', () => {

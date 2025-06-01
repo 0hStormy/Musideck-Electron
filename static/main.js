@@ -1,6 +1,33 @@
+const uiThemes = ["modern", "wmp"]
+
+const titlebarThemes = {
+    "adwaita": "svg",
+    "breeze": "svg",
+    "win10": "png",
+    "win7": "png",
+}
+
 let musideckServer = "http://127.0.0.1:5000/"
 let noConnection = false
-let uiStyle = "modern"
+
+let uiStyle = localStorage.getItem("uiStyle");
+let titlebarStyle = localStorage.getItem("titlebarStyle");
+let titlebarFormat = localStorage.getItem("titlebarFormat");
+
+if (!uiStyle) {
+  uiStyle = "modern";
+  localStorage.setItem("uiStyle", uiStyle);
+}
+
+if (!titlebarStyle) {
+  titlebarStyle = "adwaita";
+  localStorage.setItem("titlebarStyle", titlebarStyle);
+}
+
+if (!titlebarFormat) {
+  titlebarStyle = "svg";
+  localStorage.setItem("titlebarFormat", titlebarFormat);
+}
 
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();
@@ -137,5 +164,5 @@ document.getElementById('min-button').addEventListener('click', () => {
 });
 
 addCss(`static/themes/${uiStyle}.css`)
-updateDecorationsTheme("breeze", "svg")
+updateDecorationsTheme(titlebarStyle, titlebarFormat)
 main();
