@@ -1,6 +1,6 @@
 let musideckServer = "http://127.0.0.1:5000/"
 let noConnection = false
-let uiStyle = "wmp"
+let uiStyle = "modern"
 
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();

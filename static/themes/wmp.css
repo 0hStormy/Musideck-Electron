@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Noto Sans', Arial, serif;
+    font-family: "Segoe UI", system-ui, 'Noto Sans', Arial, serif;
     background-image: linear-gradient(to bottom, #000000, #0a385a, #000000);
     color: white;
     text-align: center;
@@ -31,13 +31,12 @@ body {
   border-radius: 48px;
   border: solid;
   border-color: #8ca9d4;
-  transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
 }
 
 
 .media-state:hover {
-    background-color: #ffffff22;
-    transform: scale(1.1);
+    box-shadow: 0px 0px 16px lightblue;
 }
 
 .media-state:active {
@@ -103,7 +102,7 @@ img {
 }
 
 .cover {
-  transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
   box-shadow: 0 0px 30px rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   padding: 0;
@@ -115,6 +114,7 @@ img {
 
 h1, h2, h3, p, a {
     margin: 8px;
+    font-weight: normal;
 }
 
 h1 {
