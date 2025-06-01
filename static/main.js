@@ -128,5 +128,5 @@ document.getElementById('min-button').addEventListener('click', () => {
     window.api.sendWindowControl('minimize');
 });
 
-updateDecorationsTheme("win10", "png")
+updateDecorationsTheme("breeze", "svg")
 main();
