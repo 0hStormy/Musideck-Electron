@@ -1,0 +1,28 @@
+.titlebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  backdrop-filter: blur(16px);
+  -webkit-app-region: drag;
+}
+
+.decorations {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  -webkit-app-region: no-drag;
+}
+
+.decorations img {
+  width: 20px;
+  margin: 4px;
+  padding: 4px;
+  background: #ffffff11;
+}
+
+.decorations img:hover {
+  background: #ffffff22;
+}

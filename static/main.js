@@ -15,6 +15,22 @@ function httpPost(theUrl, requestBody=null) {
     return xmlHttp.responseText;
 }
 
+function updateDecorationsTheme(newTheme) {
+    decorationsTheme = newTheme
+    document.getElementById('close-button').src = `static/titlebar/${decorationsTheme}/close.svg`;
+    document.getElementById('min-button').src = `static/titlebar/${decorationsTheme}/min.svg`;
+    document.getElementById('max-button').src = `static/titlebar/${decorationsTheme}/max.svg`;
+    addCss(`static/titlebar/${decorationsTheme}/titlebar.css`)
+}
+
+function addCss(fileName) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = fileName;
+    document.head.appendChild(link);
+}
+
 async function reconnect() {
     console.log(document.getElementById('ipBox').value)
     if (document.getElementById('ipBox').value != null) {
@@ -99,4 +115,18 @@ async function main() {
     }
 }
 
+// Window management
+document.getElementById('close-button').addEventListener('click', () => {
+    window.api.sendWindowControl('close');
+});
+
+document.getElementById('max-button').addEventListener('click', () => {
+    window.api.sendWindowControl('maximize');
+});
+
+document.getElementById('min-button').addEventListener('click', () => {
+    window.api.sendWindowControl('minimize');
+});
+
+updateDecorationsTheme("breeze")
 main();

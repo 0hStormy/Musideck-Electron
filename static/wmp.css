@@ -1,22 +1,9 @@
-@keyframes scroll-diagonal {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -512px -512px;
-  }
-}
-
 body {
     margin: 0;
     font-family: 'Noto Sans', Arial, serif;
-    background-image: linear-gradient(to bottom right, #B6F68E, #548BDD);
-    backdrop-filter: brightness(0.5) blur(64px);
-    -webkit-backdrop-filter: brightness(0.5) blur(64px);
+    background-image: linear-gradient(to bottom, #000000, #0a385a, #000000);
     color: white;
-    background-size: 512px 512px;
     text-align: center;
-    animation: scroll-diagonal 30s linear infinite;
 }
 
 .root {
@@ -40,8 +27,10 @@ body {
   height: 48px;
   margin: 12px;
   padding: 8px;
-  background-color: #ffffff11;
+  background: linear-gradient(#cadaf2, #073477, #52b9db);
   border-radius: 48px;
+  border: solid;
+  border-color: #8ca9d4;
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
 }
 
@@ -91,9 +80,9 @@ body {
 .progress-container {
   max-width: 640px;
   width: 100%;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.25);
+  height: 8px;
   border-radius: 24px;
+  border: 1px solid #ffffff80;
   overflow: hidden;
   margin: 24px;
   margin-inline: 0px;
@@ -101,7 +90,7 @@ body {
 
 .progress-bar {
   height: 100%;
-  background: #ffffff;
+  background: linear-gradient(#96bdf8, #132a50, #3e86f3);
   width: 0%;
   transition: 0.25s;
 }
@@ -115,6 +104,9 @@ img {
 
 .cover {
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 0;
 }
 
 .cover:hover {
@@ -154,20 +146,22 @@ input:active {
 
 button {
   all: unset;
-  height: 48px;
+  height: 32px;
   margin: 8px;
   padding: 4px 16px;
-  background-color: #ffffff11;
-  border-radius: 48px;
+  background: linear-gradient(#eef5ff, #ffffff 49%, #bebebe 50%);
+  border: 2px solid #808080;
+  color: #000000;
+  border-radius: 8px;
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
 }
 
 button:hover {
-  background-color: #ffffff22;
-  transform: scale(1.1);
+  background: linear-gradient(#eef5ff, #ffffff 49%, #add8fb 50%);
+  border: 2px solid #3fcbf6;
 }
 
 button:active {
-  background-color: #ffffff22;
-  transform: scale(0.9);
+  background: linear-gradient(#7095b4, #779cae 49%, #cccccc 50%);
+  border: 2px solid #33b1d8;
 }
