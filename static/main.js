@@ -1,5 +1,6 @@
 let musideckServer = "http://127.0.0.1:5000/"
 let noConnection = false
+let uiStyle = "wmp"
 
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();
@@ -79,7 +80,9 @@ async function main() {
             document.getElementById('album').innerHTML = songJSON.album;
             document.getElementById('artist').innerHTML = songJSON.artist;
             document.getElementById('cover').src = `${musideckServer}/static/cover.png${cacheBust}`;
-            document.querySelector('body').style.backgroundImage = `url("${musideckServer}/static/cover.png${cacheBust}")`;
+            if (uiStyle == "modern") {
+                document.querySelector('body').style.backgroundImage = `url("${musideckServer}/static/cover.png${cacheBust}")`;
+            }
         }
 
         if (songJSON.status == "Playing") {
@@ -92,7 +95,6 @@ async function main() {
     } catch (error) {
         const serverErrorHTML = `
         <div class="root">
-            <div class="titlebar"></div>
             <h1>No Server Connection</h1>
             <p>${error.message}</p>
             <div class="hori">
@@ -101,6 +103,12 @@ async function main() {
             </div>
             <p>Current IP: ${musideckServer}<p>
             <button onclick="reconnect()">Reconnect</button>
+            <div class="titlebar"></div>
+            <div class="decorations">
+                <img id="min-button" src="static/titlebar/adwaita/min.svg" alt="">
+                <img id="max-button" src="static/titlebar/adwaita/max.svg" alt="">
+                <img id="close-button" class="close-button" src="static/titlebar/adwaita/close.svg" alt="">
+            </div>
         </div>
         `;
         if (error instanceof TypeError && error.message === 'Failed to fetch') {
@@ -128,5 +136,6 @@ document.getElementById('min-button').addEventListener('click', () => {
     window.api.sendWindowControl('minimize');
 });
 
+addCss(`static/themes/${uiStyle}.css`)
 updateDecorationsTheme("breeze", "svg")
 main();

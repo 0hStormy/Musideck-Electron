@@ -10,7 +10,7 @@
 body {
     margin: 0;
     font-family: 'Noto Sans', Arial, serif;
-    background-image: linear-gradient(to bottom right, #B6F68E, #548BDD);
+    background: linear-gradient(to bottom right, #B6F68E, #548BDD);
     backdrop-filter: brightness(0.5) blur(64px);
     -webkit-backdrop-filter: brightness(0.5) blur(64px);
     color: white;
