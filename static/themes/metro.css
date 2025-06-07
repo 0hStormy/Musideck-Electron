@@ -1,0 +1,182 @@
+@keyframes scroll-diagonal {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -512px -512px;
+  }
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, 'Noto Sans', Arial, serif;
+    background: #111111;
+    backdrop-filter: brightness(0.5) blur(64px);
+    -webkit-backdrop-filter: brightness(0.5) blur(64px);
+    color: white;
+    background-size: 512px 512px;
+    text-align: center;
+    animation: scroll-diagonal 30s linear infinite;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-inline: 20%;
+}
+
+.hori {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#media-buttons {
+  position: absolute;
+  bottom: 0;
+  background-color: #00589e;
+  width: 100%;
+}
+
+.media-state {
+  all: unset;
+  height: 48px;
+  padding: 8px;
+  background-color: #00589e;
+}
+
+
+.media-state:hover {
+    background-color: #ffffff22;
+}
+
+.media-state:active {
+    background-color: #00000022;
+}
+
+.settings-icon {
+  all: unset;
+  height: 32px;
+  padding: 16px;
+  opacity: 1;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  filter: invert();
+  content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiID4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9Ii0xMCAwIDEwNDQgMTAyNCI+CiAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIKZD0iTTk2NSAxMTBxMTMgMjIgMjQgNDNxMTAgMjAgMTggNDF0MTMgNDRxNCAyMyA0IDUwcTAgMzkgLTEwIDc2dC0yOSA2OXQtNDUgNThxLTI3IDI3IC01OSA0NnEtMzIgMTggLTY5IDI5cS0zNiAxMCAtNzYgMTBxLTExIDAgLTIzIC0xdC0yMyAtM2wtNDAzIDQwM3EtMjQgMjQgLTU1IDM2cS0zMSAxMyAtNjQgMTNxLTM1IDAgLTY1IC0xM3EtMzEgLTEzIC01NCAtMzZxLTIyIC0yMyAtMzYgLTUzcS0xMyAtMzEgLTEzIC02NXQxMiAtNjUKcTEzIC0zMCAzNyAtNTRsNDAzIC00MDNxLTIgLTEyIC0zIC0yNHEtMSAtMTEgLTEgLTIzcTAgLTM5IDEwIC03NnQyOSAtNjl0NDUgLTU4cTI3IC0yNyA1OSAtNDZxMzIgLTE4IDY5IC0yOXEzNiAtMTAgNzYgLTEwcTI3IDAgNTAgNHEyMiA0IDQzIDEydDQyIDE5cTIwIDExIDQzIDI0bC0xOTcgMTk3bDUxIDUxek03MzYgNTEycTQ2IDAgODcgLTE4cTQxIC0xNyA3MSAtNDhxMzAgLTMwIDQ4IC03MXExOCAtNDAgMTggLTg3cTAgLTM2IC0xMiAtNzAKbC0xODAgMTc5bC0xNDEgLTE0MWwxNzkgLTE4MHEtMzMgLTEyIC03MCAtMTJxLTQ2IDAgLTg3IDE4cS00MSAxNyAtNzEgNDhxLTMwIDMwIC00OCA3MXEtMTggNDAgLTE4IDg3cTAgMTcgMyAzNHEzIDE2IDcgMzNsLTQyNyA0MjhxLTE1IDE0IC0yMyAzM3QtOCA0MHQ4IDQwdDIyIDMzdDMzIDIzcTE5IDggNDAgOHQ0MCAtOHQzNCAtMjJsNDI4IC00MjhxMTYgNCAzMyA3cTE2IDMgMzQgM3oiIC8+Cjwvc3ZnPgo=');
+}
+
+.settings-icon:hover {
+    background-color: #00000022;
+}
+
+.settings-icon:active {
+    background-color: #ffffff22;
+}
+
+.vert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-container {
+  position: relative;
+  max-width: 640px;
+  width: 100%;
+  height: 4px;
+  background: #ffffff20;
+  overflow: visible;
+  margin: 24px;
+  margin-inline: 0px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #ffffff40;
+  width: 0%;
+  transition: width 0.25s;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: solid 2px #ffffff;
+  background: #111111;
+}
+
+img {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px;
+}
+
+.cover {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+}
+
+.cover:hover {
+  transform: scale(1.05);
+}
+
+h1, h2, h3, p, a {
+    margin: 8px;
+    font-weight: normal;
+}
+
+h1 {
+  font-size: 28pt;
+}
+
+h2 {
+  font-size: 14pt;
+}
+
+input {
+  all: unset;
+  height: 32px;
+  margin: 8px;
+  padding: 4px 16px;
+  background-color: #ffffff11;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+}
+
+input:hover {
+  background-color: #ffffff22;
+}
+
+input:active {
+  background-color: #ffffff22;
+  transform: scale(0.9);
+}
+
+button {
+  all: unset;
+  height: 48px;
+  margin: 8px;
+  padding: 0px 32px;
+  background-color: #ffffff22;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+}
+
+button:hover {
+  background-color: #ffffff44;
+}
+
+button:active {
+  background-color: #ffffff11;
+}

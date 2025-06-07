@@ -1,4 +1,4 @@
-const uiThemes = ["modern", "wmp"]
+const uiThemes = ["modern", "wmp", "metro"]
 
 const titlebarThemes = {
     "adwaita": "svg",
@@ -130,6 +130,7 @@ async function main() {
             </div>
             <p>Current IP: ${musideckServer}<p>
             <button onclick="reconnect()">Reconnect</button>
+            <img class="settings-icon" onclick="location.replace('settings.html')" src="static/img/settings.svg" alt="">
             <div class="titlebar"></div>
             <div class="decorations">
                 <img id="min-button" src="static/titlebar/adwaita/min.svg" alt="">
