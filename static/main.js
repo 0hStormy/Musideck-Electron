@@ -1,4 +1,4 @@
-const uiThemes = ["modern", "wmp", "metro"]
+const uiThemes = ["modern", "wmp", "metro", "fluent"]
 
 const titlebarThemes = {
     "adwaita": "svg",
@@ -164,6 +164,6 @@ document.getElementById('min-button').addEventListener('click', () => {
     window.api.sendWindowControl('minimize');
 });
 
-addCss(`static/themes/${uiStyle}.css`)
 updateDecorationsTheme(titlebarStyle, titlebarFormat)
+addCss(`static/themes/${uiStyle}.css`)
 main();

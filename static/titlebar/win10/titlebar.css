@@ -6,7 +6,6 @@
   height: 30px;
   backdrop-filter: blur(16px);
   -webkit-app-region: drag;
-  background: #ffffff11;
 }
 
 .decorations {
