@@ -1,4 +1,4 @@
-const uiThemes = ["modern", "wmp", "metro", "fluent"]
+const uiThemes = ["modern", "breeze", "wmp", "metro", "fluent"]
 
 const titlebarThemes = {
     "adwaita": "svg",
